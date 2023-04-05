@@ -9,6 +9,10 @@ const Blogs = () => {
       <Card />
       <Card />
       <Card />
+      <Card />
+      <Card />
+      <Card />
+      <Card />
     </section>
   );
 };
