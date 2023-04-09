@@ -1,30 +1,17 @@
 import React from "react";
 import { Link } from "react-router-dom";
-const BlogContent = () => {
+const BlogContent = ({ title, blogimage, content }) => {
   return (
     <section className="blogContent">
       <div className="backBtn">
         <Link to="/">Back</Link>
       </div>
-      <h1>Title</h1>
+      <h1>{title}</h1>
       <div className="content">
         <div className="imageHolder">
-          <img src="/assets/kech.jpeg" alt="title" />
+          <img src={`http://localhost:5000/${blogimage}`} alt={title} />
         </div>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia quam
-          explicabo est ab iure possimus vel aspernatur deleniti qui aut
-          dolores, odit quas minima consequuntur impedit fugiat voluptates
-          voluptate reprehenderit voluptatem quo! Dicta, tempore. Deserunt
-          possimus suscipit quae temporibus architecto distinctio nobis
-          molestiae consectetur sequi expedita illo doloribus dolore, sit
-          similique soluta quisquam, facere ea quidem porro consequuntur rem?
-          Beatae eius debitis ipsam at laboriosam! Fugiat doloribus itaque cum
-          ratione sed alias voluptatem consectetur reiciendis nobis molestias
-          fuga debitis exercitationem deserunt adipisci quidem quo, ex quas quam
-          assumenda neque dignissimos architecto aperiam dolorem. Culpa soluta
-          dolores doloribus velit voluptatum libero?
-        </p>
+        <p>{content}</p>
       </div>
     </section>
   );

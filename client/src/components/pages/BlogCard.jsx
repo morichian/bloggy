@@ -1,15 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
-const BlogCard = () => {
+const BlogCard = ({ homeImage, id, name }) => {
   return (
     <section className="blogCard">
       <div className="imgBlog">
-        <Link to="/blog-article">
-          <img src="/assets/kech.jpeg" alt="" />
+        <Link to={`${id}`}>
+          <img src={`http://localhost:5000/${homeImage}`} alt={name} />
         </Link>
       </div>
       <div className="discover">
-        <Link to="/blog-article">Discover</Link>
+        <Link to={`${id}`}>Discover</Link>
       </div>
     </section>
   );

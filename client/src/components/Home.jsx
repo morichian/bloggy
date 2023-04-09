@@ -1,10 +1,10 @@
 import React from "react";
 import Sliders from "./Sliders";
 import { Link } from "react-router-dom";
-const Home = () => {
+const Home = ({ blogs }) => {
   return (
     <div>
-      <Sliders />
+      <Sliders blogs={blogs} />
       <section className="discoverHolder">
         <Link className="discoverAll" to="/blogs">
           Discover All

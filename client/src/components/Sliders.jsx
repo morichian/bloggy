@@ -9,7 +9,7 @@ import "swiper/css/pagination";
 // import required modules
 import { Autoplay, FreeMode, Pagination } from "swiper";
 
-export default function App() {
+export default function App({ blogs }) {
   return (
     <>
       <Swiper
@@ -23,21 +23,11 @@ export default function App() {
         }}
         modules={[Autoplay, FreeMode, Pagination]}
         className="mySwiper">
-        <SwiperSlide>
-          <BlogCard />
-        </SwiperSlide>
-        <SwiperSlide>
-          <BlogCard />
-        </SwiperSlide>
-        <SwiperSlide>
-          <BlogCard />
-        </SwiperSlide>
-        <SwiperSlide>
-          <BlogCard />
-        </SwiperSlide>
-        <SwiperSlide>
-          <BlogCard />
-        </SwiperSlide>
+        {blogs.map((blog) => (
+          <SwiperSlide>
+            <BlogCard homeImage={blog.image} id={blog._id} name={blog.name} />
+          </SwiperSlide>
+        ))}
       </Swiper>
     </>
   );

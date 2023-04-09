@@ -3,33 +3,26 @@ import { Link } from "react-router-dom";
 import { FaCamera } from "react-icons/fa";
 import axios from "axios";
 const CreateBlog = () => {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [title, setTitle] = useState("");
+  const [content, setContent] = useState("");
   const [image, setImage] = useState("");
 
   const createBlogHandler = async (e) => {
     e.preventDefault();
     const formData = new FormData();
-    formData.append("name", name);
-    formData.append("email", email);
-    formData.append("password", password);
+    formData.append("title", title);
+    formData.append("content", content);
     formData.append("image", image);
     try {
-      const response = await axios.post(
-        "http://localhost:5000/api/bloggy/create",
-        formData,
-        {
-          headers: { "Content-Type": "multipart/formdata" },
-        }
-      );
-      console.log(response);
-      console.log(image);
+      await axios.post("http://localhost:5000/api/bloggy/create", formData, {
+        headers: { "Content-Type": "multipart/formdata" },
+      });
+
       console.log("Data has been Created !");
-      setName("");
-      setEmail("");
-      setPassword("");
+      setTitle("");
+      setContent("");
       setImage("");
+      window.location.replace("http://localhost:3000/blogs");
     } catch (error) {
       console.log(error.message);
     }
@@ -40,30 +33,24 @@ const CreateBlog = () => {
       <form onSubmit={createBlogHandler}>
         <input
           type="text"
-          name="name"
+          name="title"
           required
-          id="name"
-          value={name}
-          placeholder="Full Name"
-          onChange={(e) => setName(e.target.value)}
+          id="title"
+          value={title}
+          placeholder="Title"
+          onChange={(e) => setTitle(e.target.value)}
         />
-        <input
-          type="email"
+        <textarea
+          cols={10}
+          rows={10}
           required
-          name="email"
-          id="email"
-          placeholder="Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
+          name="content"
+          id="content"
+          placeholder="Content..."
+          value={content}
+          onChange={(e) => setContent(e.target.value)}
         />
-        <input
-          type="password"
-          placeholder="Password"
-          name="password"
-          id="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
+
         <label htmlFor="image">
           <FaCamera />{" "}
           {image ? <span>{image.name}</span> : <span> Upload Image</span>}

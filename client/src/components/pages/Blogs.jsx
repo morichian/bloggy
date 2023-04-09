@@ -2,17 +2,12 @@ import React from "react";
 import BlogCard from "./BlogCard";
 import Card from "./Card";
 
-const Blogs = () => {
+const Blogs = ({ blogs }) => {
   return (
     <section className="blogs">
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
+      {blogs.map((blog) => (
+        <Card id={blog._id} title={blog.title} />
+      ))}
     </section>
   );
 };

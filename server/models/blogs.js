@@ -1,15 +1,11 @@
 const mongoose = require("mongoose");
 
 const BlogsSchema = new mongoose.Schema({
-  name: {
+  title: {
     type: String,
     required: true,
   },
-  email: {
-    type: String,
-    required: true,
-  },
-  password: {
+  content: {
     type: String,
     required: true,
   },

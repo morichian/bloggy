@@ -1,16 +1,23 @@
 const Blogs = require("../models/blogs");
 const createBlog = async (req, res) => {
-  const { name, email, password } = req.body;
+  const { title, content } = req.body;
   const image = req.file.filename;
 
   const newBlog = new Blogs({
-    name: name,
-    email: email,
-    password: password,
+    title: title,
+    content: content,
     image: image,
   });
   const Blog = newBlog.save();
   res.status(201).json({ message: "Blog has been created !", details: Blog });
 };
 
-module.exports = { createBlog };
+const getBlogs = async (req, res) => {
+  try {
+    const response = await Blogs.find().exec();
+    res.json({ response });
+  } catch (error) {
+    console.log(error.message);
+  }
+};
+module.exports = { createBlog, getBlogs };
