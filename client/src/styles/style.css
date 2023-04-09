@@ -155,6 +155,16 @@ header nav a {
   flex-direction: column;
   justify-content: center;
 }
+.blogContent .content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row-reverse;
+  margin: 40px 0;
+}
+.blogContent .content .imageHolder {
+  width: 50%;
+}
 .blogContent h1 {
   font-size: 36px;
 }
@@ -168,28 +178,42 @@ header nav a {
   font-size: 18px;
   text-align: justify;
   margin: 25px;
+  width: 50%;
+  height: 50vh;
 }
 .card {
-  margin: 30px;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 5px 1px 10px 10px #a7a7a7;
-  padding: 20px;
+  flex-direction: column;
+  width: 30%;
+  box-shadow: 5px 10px 10px #a8a8a8;
+  cursor: pointer;
+  border-radius: 3px;
+}
+.card .content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 .card img {
-  max-width: 200px;
+  max-width: 400px;
   width: 100%;
-  height: auto;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 3px;
 }
 .content h2 {
   margin: 20px;
+  color: var(--fontColor);
 }
 .content a {
   background-color: var(--mainColor);
   padding: 10px 40px;
   margin: 10px;
   color: var(--fontColor);
+  font-weight: 600;
 }
 .content summary {
   margin: 50px 10px;
@@ -201,9 +225,12 @@ header nav a {
   justify-content: center;
 }
 .blogs {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-  margin: 30px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 40px;
+  margin: 40px 0px;
 }
 
 /* Create post page & link */
@@ -287,5 +314,16 @@ header nav a {
 @media (max-width: 588px) {
   .card {
     flex-direction: column;
+  }
+}
+@media (max-width: 959px) {
+  .blogContent .content {
+    flex-direction: column;
+  }
+  .blogContent .imageHolder {
+    width: 100%;
+  }
+  .blogContent p {
+    width: 95%;
   }
 }

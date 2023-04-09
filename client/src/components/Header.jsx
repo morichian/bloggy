@@ -10,7 +10,7 @@ const Header = () => {
 
       {logged ? (
         <Link className="createpost" to="/create">
-          Create post
+          Create!
         </Link>
       ) : (
         <nav>
