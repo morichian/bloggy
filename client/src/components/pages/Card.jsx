@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
-const Card = ({ id, title }) => {
+const Card = ({ id, title, cover }) => {
   return (
     <Link to="/blog-article" className="card">
-      <img src="/assets/kech.jpeg" alt="" />
+      <img src={`http://localhost:5000/${cover}`} alt="" />
       <div className="content">
         <h2>{title} </h2>
         <div className="btnHolder">

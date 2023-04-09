@@ -6,7 +6,7 @@ const Blogs = ({ blogs }) => {
   return (
     <section className="blogs">
       {blogs.map((blog) => (
-        <Card id={blog._id} title={blog.title} />
+        <Card id={blog._id} title={blog.title} cover={blog.image} />
       ))}
     </section>
   );
